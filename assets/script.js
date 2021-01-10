@@ -13,7 +13,7 @@ upperLetter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", 
 special = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 
 //declare choices variable
-var choices 
+var input 
 
 var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
@@ -108,7 +108,7 @@ function writePassword() {
 
   //create random selection variable
   for (var i = 0; i < start; i++) {
-    var pickInputs = choices[Math.floor(Math.random() * choices.length)];
+    var pickInputs = input[Math.floor(Math.random() * input.length)];
     password.push(pickInputs);
   }
   //
@@ -119,5 +119,5 @@ function writePassword() {
 
 //display the generated password in the textbox
 function UserInput(PassWord) {
-  document.getElementById("#password").textContent = PassWord;
+  document.getElementById("password").textContent = PassWord;
 }
