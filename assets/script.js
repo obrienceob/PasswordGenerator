@@ -19,29 +19,41 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 
 
-// to do create prompts
+// to do create prompts - done
 
-//todo allow user to select criteria for password
+// to do allow user to select criteria for password - done
 
-//todo allow user to choose length of password between 8 and 128
+// to do allow user to choose length of password between 8 and 128 - done
 
-//todo allow upper, lower, numbers, and characters for generator
+// to do allow upper, lower, numbers, and characters for generator - done
 
-//todo validate prompt inputs and ensure at least one type of character is selected
+// to do validate prompt inputs and ensure at least one type of character is selected - done
 
-//todo display password
+// to do display password in text box - done
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 function writePassword() {
   //get user inputs
   start = parseInt(prompt("How long do you want your password? Must be a length between 8 and 128"));
-  //create a if esle if else for user input validations
+  //create a if esle if else for user input validations NOTE FOR CONOR - CHECK ON MAKING THE VALIDATION A WHILE LOOP
+  
+  
   if (!start) {
-    alert("You need to input something :)");
-  } else if (start < 8 || start > 128) {
-    start = parseInt(prompt("Must be a length between 8 and 128"));
-  } else {
+    alert("You need to input something");
+  } 
+  else if (start < 8 || start > 128) {
+    while (start < 8 || start > 128) {
+      start = parseInt(prompt("Must have a length between 8 and 128"));
+      }
+    wantNumber = confirm("Do you want your password to have numbers?");
+    wantSpecial = confirm("Do you want your password to have special characters?");
+    wantUpper = confirm("Do you want your password to have uppercase letters?");
+    wantLower = confirm("Do you want your password to have lowercase letters?");
+    
+  }
+  else {
     wantNumber = confirm("Do you want your password to have numbers?");
     wantSpecial = confirm("Do you want your password to have special characters?");
     wantUpper = confirm("Do you want your password to have uppercase letters?");
