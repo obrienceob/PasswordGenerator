@@ -37,12 +37,12 @@ generateBtn.addEventListener("click", writePassword);
 function writePassword() {
   //get user inputs
   start = parseInt(prompt("How long do you want your password? Must be a length between 8 and 128"));
-  //create a if esle if else for user input validations NOTE FOR CONOR - CHECK ON MAKING THE VALIDATION A WHILE LOOP
-  
-  
+  //create a if esle if else for user input validations 
+  //ensure the user inputs a value
   if (!start) {
     alert("You need to input something");
   } 
+  //while loop ensuring the input is in the correct range, once it reaches that range get PW input
   else if (start < 8 || start > 128) {
     while (start < 8 || start > 128) {
       start = parseInt(prompt("Must have a length between 8 and 128"));
@@ -53,6 +53,7 @@ function writePassword() {
     wantLower = confirm("Do you want your password to have lowercase letters?");
     
   }
+  //get input types for PW
   else {
     wantNumber = confirm("Do you want your password to have numbers?");
     wantSpecial = confirm("Do you want your password to have special characters?");
@@ -116,20 +117,20 @@ function writePassword() {
   };
 
   //create an array placeholder for password variable
-  var password = [];
+  var pw = [];
 
-  //create random selection variable
+  //create random selection variable for inputs
   for (var i = 0; i < start; i++) {
     var pickInputs = input[Math.floor(Math.random() * input.length)];
-    password.push(pickInputs);
+    pw.push(pickInputs);
   }
-  //
-  var PassWord = password.join("");
-  UserInput(PassWord);
-  return PassWord;
+  //using the password, joining the pasword array into a string
+  var password = pw.join("");
+  UserInput(password);
+  return password;
 };
 
 //display the generated password in the textbox
-function UserInput(PassWord) {
-  document.getElementById("password").textContent = PassWord;
+function UserInput(password) {
+  document.getElementById("password").textContent = password;
 }
